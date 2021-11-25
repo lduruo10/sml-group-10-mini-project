@@ -1,0 +1,35 @@
+SML project report outline, given a maximum of 7 pages
+(draft)
+
+- Abstract (0.25 pages, maybe we can skip this?)
+
+1. Introduction (0.25 pages)
+
+2. Common elements (0.5 - 1 pages)
+- Feature engineering (if there turns out to be some common elements in this)
+- Preprocessing (standardization, outlier removal, ...)
+- Tuning (GridSearchCV, RepeatedStratifiedKFold, ...)
+- Evaluation metrics
+
+3. Methods (0.75 pages per method)
+In this part we include - for each method - feature engineering, method-specific preprocessing steps, tuning details and write briefly about the result. So this should cover item 2, 3 and 4 from 4.1 in the instructions.
+- LR
+- LDA & QDA
+- k-NN
+- Tree-based methods (select one?)
+
+4. Method selection (0.5 pages)
+- Which metrics and why/how
+- Comparison
+- Result
+
+5. Conclusions (0.5 pages)
+- Discuss the results briefly
+- Mention limitations and weaknesses
+- Further study possibilities
+
+6. Feature importance, structured as described in the instructions (5 paragraphs, maybe 1 page)
+
+- References
+
+- Code
