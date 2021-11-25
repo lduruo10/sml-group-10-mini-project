@@ -8,3 +8,6 @@
 .ipynb_checkpoints/lda_qda-checkpoint.ipynb
 .ipynb_checkpoints/knn-checkpoint.ipynb
 .ipynb_checkpoints/qda_test-checkpoint.ipynb
+.DS_Store
+data/.ipynb_checkpoints/train-checkpoint.csv
+~$train_processed.xlsx
