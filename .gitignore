@@ -11,3 +11,9 @@
 .DS_Store
 data/.ipynb_checkpoints/train-checkpoint.csv
 ~$train_processed.xlsx
+.ipynb_checkpoints/LDA_Final-checkpoint.ipynb
+.ipynb_checkpoints/QDA_Final-checkpoint.ipynb
+.ipynb_checkpoints/test-checkpoint.ipynb
+.ipynb_checkpoints/LDA-checkpoint.ipynb
+.ipynb_checkpoints/LDA_QDA_Test-checkpoint.ipynb
+.ipynb_checkpoints/QDA-checkpoint.ipynb
