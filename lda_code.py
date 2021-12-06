@@ -30,9 +30,7 @@ y.index = list(y.index)
 
 
 def apply_lda(x_array, y_array, solver_inp='svd', shrinkage_inp=None, tol_inp=0.0001, covariance_estimator_inp=None):
-    lda = dis_an.LinearDiscriminantAnalysis(solver=solver_inp,
-                                            shrinkage=shrinkage_inp,
-                                            tol=tol_inp,
+    lda = dis_an.LinearDiscriminantAnalysis(solver=solver_inp, shrinkage=shrinkage_inp, tol=tol_inp,
                                             covariance_estimator=covariance_estimator_inp)
     cv = mdl_sl.RepeatedStratifiedKFold(n_splits=5, n_repeats=10, random_state=1)
 
@@ -194,7 +192,6 @@ grid_local_outlier_factor = {
     'model__outlier_detector__algorithm': ['auto', 'ball_tree', 'kd_tree', 'brute'],
     'model__outlier_detector__leaf_size': list(np.linspace(10, 100, 10, dtype='int32')),
     'model__outlier_detector__metric': ['cityblock', 'cosine', 'euclidean', 'l1', 'l2', 'manhattan'],
-    #     'model__outlier_detector__p': [1],
     'model__outlier_detector__contamination': list(np.linspace(0.01, 0.5, 10)),
     'model__outlier_detector__novelty': [True, False],
     'model__outlier_detector__n_jobs': [-1]
@@ -211,9 +208,7 @@ for outlier_index in range(0, len(outliers)):
 
     print(outliers[outlier_index])
 
-    results = get_best_parameters_cv_scaling_outliers_included(x_array_new,
-                                                               y_array,
-                                                               grid_lda_with_outlier,
+    results = get_best_parameters_cv_scaling_outliers_included(x_array_new, y_array, grid_lda_with_outlier,
                                                                outliers[outlier_index])
 
     results_iter.append(results)
@@ -224,18 +219,11 @@ for outlier_index in range(0, len(outliers)):
 # Function to check feature selection models
 def get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array, y_array, grid,
                                                                        feature_selection_method):
-    lda = dis_an.LinearDiscriminantAnalysis(solver='lsqr',
-                                            tol=0.00001,
-                                            store_covariance=True,
+    lda = dis_an.LinearDiscriminantAnalysis(solver='lsqr', tol=0.00001, store_covariance=True,
                                             shrinkage=0.02040816326530612)
 
-    lof = nei.LocalOutlierFactor(novelty=False,
-                                 n_neighbors=250,
-                                 n_jobs=-1,
-                                 metric='euclidean',
-                                 leaf_size=40,
-                                 contamination=0.05000000000000001,
-                                 algorithm='kd_tree')
+    lof = nei.LocalOutlierFactor(novelty=False, n_neighbors=250, n_jobs=-1, metric='euclidean', leaf_size=40,
+                                 contamination=0.05000000000000001, algorithm='kd_tree')
 
     woc = WithoutOutliersClassifier(lof, lda)
 
@@ -267,10 +255,7 @@ grid = {
     'selector__k': list(range(1, len(x_new.columns) + 1))
 }
 
-results_anova = get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array_new,
-                                                                                   y_array,
-                                                                                   grid,
-                                                                                   sel)
+results_anova = get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array_new, y_array, grid, sel)
 
 # Wrapper Methods (RFE)
 sel = feat_sel.RFE(estimator=tree.DecisionTreeClassifier(), step=1)
@@ -279,10 +264,7 @@ grid = {
     'selector__n_features_to_select': list(range(1, len(x_new.columns) + 1))
 }
 
-results_rfe = get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array_new,
-                                                                                 y_array,
-                                                                                 grid,
-                                                                                 sel)
+results_rfe = get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array_new, y_array, grid, sel)
 
 # Sequential Feature Selector
 
@@ -292,26 +274,16 @@ grid = {
 
 sel = feat_sel.SequentialFeatureSelector(tree.DecisionTreeClassifier())
 
-results_sfs = get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array_new,
-                                                                                 y_array,
-                                                                                 grid,
-                                                                                 sel)
+results_sfs = get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array_new, y_array, grid, sel)
 
 
 # Function of final model
 def final_model(x_array, y_array):
-    lda = dis_an.LinearDiscriminantAnalysis(solver='lsqr',
-                                            tol=0.00001,
-                                            store_covariance=True,
+    lda = dis_an.LinearDiscriminantAnalysis(solver='lsqr', tol=0.00001, store_covariance=True,
                                             shrinkage=0.02040816326530612)
 
-    lof = nei.LocalOutlierFactor(novelty=False,
-                                 n_neighbors=250,
-                                 n_jobs=-1,
-                                 metric='euclidean',
-                                 leaf_size=40,
-                                 contamination=0.05000000000000001,
-                                 algorithm='kd_tree')
+    lof = nei.LocalOutlierFactor(novelty=False, n_neighbors=250, n_jobs=-1, metric='euclidean', leaf_size=40,
+                                 contamination=0.05000000000000001, algorithm='kd_tree')
 
     woc = WithoutOutliersClassifier(lof, lda)
 
@@ -369,18 +341,11 @@ def check_collinearity(x):
 
 # Function for extracting evaluation metrics
 def produce_evaluation(x_array, y_array):
-    lda = dis_an.LinearDiscriminantAnalysis(solver='lsqr',
-                                            tol=0.00001,
-                                            store_covariance=True,
+    lda = dis_an.LinearDiscriminantAnalysis(solver='lsqr', tol=0.00001, store_covariance=True,
                                             shrinkage=0.02040816326530612)
 
-    lof = nei.LocalOutlierFactor(novelty=False,
-                                 n_neighbors=250,
-                                 n_jobs=-1,
-                                 metric='euclidean',
-                                 leaf_size=40,
-                                 contamination=0.05000000000000001,
-                                 algorithm='kd_tree')
+    lof = nei.LocalOutlierFactor(novelty=False, n_neighbors=250, n_jobs=-1, metric='euclidean', leaf_size=40,
+                                 contamination=0.05000000000000001, algorithm='kd_tree')
 
     woc = WithoutOutliersClassifier(lof, lda)
 

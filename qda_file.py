@@ -38,14 +38,9 @@ class WithoutOutliersClassifier(base.BaseEstimator, base.ClassifierMixin):
 
 # Function of final model
 def final_model(x_array, y_array):
-    qda = dis_an.QuadraticDiscriminantAnalysis(reg_param=0.001,
-                                               store_covariance=True,
-                                               tol=0.00001)
+    qda = dis_an.QuadraticDiscriminantAnalysis(reg_param=0.001, store_covariance=True, tol=0.00001)
 
-    elen = cov.EllipticEnvelope(support_fraction=1.2,
-                                store_precision=True,
-                                contamination=0.03,
-                                assume_centered=True,
+    elen = cov.EllipticEnvelope(support_fraction=1.2, store_precision=True, contamination=0.03, assume_centered=True,
                                 random_state=1)
 
     woc = WithoutOutliersClassifier(elen, qda)
@@ -68,14 +63,9 @@ def final_model(x_array, y_array):
 
 # Function for extracting evaluation metrics
 def produce_evaluation(x_array, y_array):
-    qda = dis_an.QuadraticDiscriminantAnalysis(reg_param=0.001,
-                                               store_covariance=True,
-                                               tol=0.00001)
+    qda = dis_an.QuadraticDiscriminantAnalysis(reg_param=0.001, store_covariance=True, tol=0.00001)
 
-    elen = cov.EllipticEnvelope(support_fraction=1.2,
-                                store_precision=True,
-                                contamination=0.03,
-                                assume_centered=True,
+    elen = cov.EllipticEnvelope(support_fraction=1.2, store_precision=True, contamination=0.03, assume_centered=True,
                                 random_state=1)
 
     woc = WithoutOutliersClassifier(elen, qda)
