@@ -208,8 +208,7 @@ for outlier_index in range(0, len(outliers)):
 
     print(outliers[outlier_index])
 
-    results = get_best_parameters_cv_scaling_outliers_included(x_array_new, y_array, grid_lda_with_outlier,
-                                                               outliers[outlier_index])
+    results = get_best_parameters_cv_scaling_outliers_included(x_array_new, y_array, grid_lda_with_outlier, outliers[outlier_index])
 
     results_iter.append(results)
 
@@ -217,8 +216,7 @@ for outlier_index in range(0, len(outliers)):
 
 
 # Function to check feature selection models
-def get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array, y_array, grid,
-                                                                       feature_selection_method):
+def get_best_parameters_feature_selection_cv_scaling_outliers_included(x_array, y_array, grid, feature_selection_method):
     lda = dis_an.LinearDiscriminantAnalysis(solver='lsqr', tol=0.00001, store_covariance=True,
                                             shrinkage=0.02040816326530612)
 
