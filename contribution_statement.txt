@@ -1,0 +1,16 @@
+Method distribution:
+Duruo Li: Random Forest and AdaBoost
+Erik Pettersson: Logistic Regression
+Evangelos Malandrakis : LDA & QDA
+Nicolás Martín: K-NN
+
+Overall distribution and work:
+We had frequent meetings and contributions around the general aspects of the project including around methodology, method selection and evaluation, and conclusions. This helped us in trying to include overall good practices and shared procedures to get better results on each method, as well as making their results comparable. We also made constant cross-reviews and suggestions on each other advances. We would also like to share a few of the highlights of general contributions made by each team member:
+
+Duruo: volunteered to make a first research and applications of the tree methods even if we hadn't still seen them in class, and which required to review more than one method.
+Erik: helped us all improve the use of pipelines throughout the process, in a way that allowed combining both outlier removal and standardisation. This was achieved by creating a class called 'WithoutOutliersClassifer' that connected the classifier model with the rest of the pipeline.
+Evangelos: Advanced and described in detail the use of some good practices for using Repeated Stratified K-Fold, generating metrics of evaluation, and outlier treatment, which we later all used. The thorough review and adjustments described in the LDA and QDA notebooks were a good reference for the other methods.
+Nicolás: Advanced feature combinations analysis that could also be used in other methods, and motivated a wider gender imbalance review, including other external updated sources.
+
+The technical detail, description, and results related with each method, including additional tables and figures, can be seen in each method's notebook, in the following url:
+https://github.com/lduruo10/sml-group-10-mini-project
