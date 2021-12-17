@@ -1,0 +1,8 @@
+We received feedback with suggestions to improve the report in the following ways:
+- Reducing the need to make references to the information of the appendix.
+- Improve the clarity and provide further context of some claims.
+- Make several specific grammar improvements.
+
+We have reviewed and updated the report based on these comments in the following way:
+- We included all relevant results and numbers within the main body of the report in such a way that the tables and figures from the appendix are only needed if the reader wants to look for further detail.
+- We made and overall revision and adjustment of the clarity of the writing were we felt it could be improved, including the specific suggestions from the comments.
